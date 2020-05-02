@@ -24,4 +24,3 @@ class Squirrel(models.Model):
     
     age = models.CharField("Age", max_length = 64, choices = AGE_CHOICES)
 
-# Create your models here.
