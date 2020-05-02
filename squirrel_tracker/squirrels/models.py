@@ -18,7 +18,7 @@ class Squirrel(models.Model):
 
     squirrel_id = models.CharField("Unique Squirrel ID", unique = True)
     
-    shift = models.Charfield("Shift", max_length = 16, choices = SHIFT_CHOICES)
+    shift = models.CharField("Shift", max_length = 16, choices = SHIFT_CHOICES)
     
     date = models.DateField('Date')
     
