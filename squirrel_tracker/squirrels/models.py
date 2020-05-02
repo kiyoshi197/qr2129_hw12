@@ -1,6 +1,6 @@
 from django.db import models
 
-class Squirrel(models.Model):
+class Sighting(models.Model):
     
     SHIFT_CHOICES = [
             ('AM', 'AM'),
@@ -16,7 +16,7 @@ class Squirrel(models.Model):
     
     latitude = models.FloatField("Latitude")
 
-    squirrel_id = models.CharField("Unique Squirrel ID", unique = True)
+    unique_squirrel_id = models.CharField("Unique Squirrel ID", max_length = 256, unique = True)
     
     shift = models.CharField("Shift", max_length = 16, choices = SHIFT_CHOICES)
     
