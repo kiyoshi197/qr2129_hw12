@@ -13,7 +13,7 @@ def map(request):
         location_dict['latitude'] = i.latitude
         location_dict['longitude'] = i.longitude
         location.append(location_dict)
-    return render(request, 'squirrel_tracker/map.html', {'location':location})
+    return render(request, 'squirrels/map.html', {'location':location})
         
 
 # Create your views here.
