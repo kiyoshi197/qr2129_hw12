@@ -16,7 +16,7 @@ class Sighting(models.Model):
     
     latitude = models.FloatField("Latitude")
 
-    unique_squirrel_id = models.CharField("Unique Squirrel ID", max_length = 256, unique = True)
+    unique_squirrel_id = models.CharField("Unique Squirrel ID", max_length = 256, unique = False)
     
     shift = models.CharField("Shift", max_length = 16, choices = SHIFT_CHOICES)
     
