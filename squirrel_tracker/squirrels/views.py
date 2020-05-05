@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
 from .models import Sighting 
 
 def index(request):
-    return HttpResponse("Hi This is a squirrels tracker app.")
+    return render(request, 'squirrels/index.html')
 
 def map(request):
     location = list()
