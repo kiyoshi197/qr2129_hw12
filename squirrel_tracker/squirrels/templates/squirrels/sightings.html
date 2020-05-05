@@ -11,16 +11,14 @@
 		<tr>
 			<th scope ='col'>Unique Squirrel ID</th>
 	        	<th scope ='col'>Date</th>
-                	<th scope ='col'>Link to unique squirrel sighting</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		{% for squirrel in squirrels %}
 		<tr>
-			<td> {{ squirrel.unique_squirrel_id }} </td>
+			<td> <a href = '{{ squirrel.unique_squirrel_id }}'> {{squirrel.unique_squirrel_id}}</a></td>
 			<td> {{ squirrel.date }} </td>
-			<td> <a href = 'sightings/{{ squirrel.unique_squirrel_id }}'> {{squirrel.unique_squirrel_id}}</a></td>
 		</tr>
         	{% endfor %}
 	</tbody>
