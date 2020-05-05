@@ -18,7 +18,7 @@ def map(request):
 
 def list_sightings(request):
     squirrels = Sighting.objects.all()
-    return render(reqeust, 'squirrels/sightings.html',{'squirrels': squirrels})
+    return render(request, 'squirrels/sightings.html',{'squirrels': squirrels})
 
 def get_sighting(request, squirrel_id):
     squirrel = Sighting.objects.get(unique_squirrel_id = squirrel_id)
