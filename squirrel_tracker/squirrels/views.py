@@ -20,7 +20,7 @@ def list_sightings(request):
 
 def get_sighting(request, squirrel_id):
     squirrel = Sighting.objects.get(unique_squirrel_id = squirrel_id)
-    return render(request, 'squirrels/sightings.html', {'squirrel':squirrel})
+    return render(request, 'squirrels/detail.html', {'squirrel':squirrel})
 
 def add_sighting(request, longitude, latitude,unique_squirrel_id,  shift, date, age):
     s = Sighting(latitude = float(latitude),
