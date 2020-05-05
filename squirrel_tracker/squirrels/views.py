@@ -9,13 +9,10 @@ def index(request):
     return render(request, 'squirrels/index.html')
 
 def map(request):
-    location = list()
+    sightings = list()
     for i in Sighting.objects.all():
-        location_dict = {}
-        location_dict['latitude'] = i.latitude
-        location_dict['longitude'] = i.longitude
-        location.append(location_dict)
-    return render(request, 'squirrels/map.html', {'location':location})
+        sightings.append(i)
+    return render(request, 'squirrels/map.html', {'sightings': sightings})
 
 def list_sightings(request):
     squirrels = Sighting.objects.all()
