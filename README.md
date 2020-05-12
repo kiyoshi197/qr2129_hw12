@@ -1,4 +1,4 @@
-# Squirrel Tracker App
+## Squirrel Tracker App
 
 Hello, we are Project-Group-8, Qingqng Ren and Zhuoting Wan <br>
 UNIs: [qr2129, zw2617] <br>
