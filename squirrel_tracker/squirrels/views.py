@@ -12,9 +12,9 @@ def index(request):
 
 def map(request):
     sightings = list()
-    for i in Sighting.objects.all():
+    for i in Sighting.objects.all().order_by('date'):
         sightings.append(i)
-    return render(request, 'squirrels/map.html', {'sightings': sightings[:50]})
+    return render(request, 'squirrels/map.html', {'sightings': sightings[-50:]})
 
 def list_sightings(request):
     squirrels = Sighting.objects.all()
