@@ -24,8 +24,11 @@ def get_sighting(request, squirrel_id):
     return render(request, 'squirrels/detail.html',{'squirrel': squirrel})
 
 def stats(request):
-    data = Sighting.objects.annotate(id_count = Count('unique_squirrel_id'),adult_count = Count('age', filter = Q(age = 'Adult')))
-    return render(request, 'squirrels/stats.html', {'data': data})
+    a_count = Sighting.objects.filter(age = 'Adult').count()
+    j_count = Sighting.objects.filter(age = 'Juvenile').count()
+    am = Sighting.objects.filter(shift = 'am').count()
+    pm = Sighting.objects.filter(shift = 'pm').count()
+    return render(request, 'squirrels/stats.html', {'a_count': a_count,'j_count':j_count,'am':am ,'pm':pm})
 
 
 def add_sighting(request, longitude, latitude,unique_squirrel_id,  shift, date, age):
