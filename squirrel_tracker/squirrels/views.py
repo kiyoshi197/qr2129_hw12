@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.utils import timezone
 from django.db.models import Count, Q
+from django.db.models import Avg
 
 from .models import Sighting 
 
@@ -28,8 +29,10 @@ def stats(request):
     j_count = Sighting.objects.filter(age = 'Juvenile').count()
     am = Sighting.objects.filter(shift = 'am').count()
     pm = Sighting.objects.filter(shift = 'pm').count()
-    return render(request, 'squirrels/stats.html', {'a_count': a_count,'j_count':j_count,'am':am ,'pm':pm})
+    average_longitude = Sighting.objects.all().aggregate(Avg('longitude'))
+    average_latitude = Sighting.objects.all().aggregate(Avg('latitude'))
 
+    return render(request, 'squirrels/stats.html', {'a_count': a_count,'j_count':j_count,'am': am ,'pm': pm, 'avg_longitude': average_longitude, 'avg_latitude': average_latitude})
 
 def add_sighting(request, longitude, latitude,unique_squirrel_id,  shift, date, age):
     s = Sighting(latitude = float(latitude),
