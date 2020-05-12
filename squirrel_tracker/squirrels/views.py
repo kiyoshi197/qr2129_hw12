@@ -13,7 +13,7 @@ def map(request):
     sightings = list()
     for i in Sighting.objects.all():
         sightings.append(i)
-    return render(request, 'squirrels/map.html', {'sightings': sightings})
+    return render(request, 'squirrels/map.html', {'sightings': sightings[:50]})
 
 def list_sightings(request):
     squirrels = Sighting.objects.all()
