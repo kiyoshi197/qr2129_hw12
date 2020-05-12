@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.utils import timezone
+from django.db.models import Count, Q
 
 from .models import Sighting 
 
@@ -20,7 +21,12 @@ def list_sightings(request):
 
 def get_sighting(request, squirrel_id):
     squirrel = Sighting.objects.get(unique_squirrel_id = squirrel_id)
-    return render(request, 'squirrels/detail.html', {'squirrel':squirrel})
+    return render(request, 'squirrels/detail.html',{'squirrel': squirrel})
+
+def stats(request):
+    data = Sighting.objects.annotate(id_count = Count('unique_squirrel_id'),adult_count = Count('age', filter = Q(age = 'Adult')))
+    return render(request, 'squirrels/stats.html', {'data': data})
+
 
 def add_sighting(request, longitude, latitude,unique_squirrel_id,  shift, date, age):
     s = Sighting(latitude = float(latitude),
