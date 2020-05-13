@@ -17,4 +17,4 @@ Using this application, users can:
 - In templates, there are html coding to depict how the websites look like.
 
 ### Where to get it?
-The link: 
+The link: https://focus-album-268800.appspot.com/
